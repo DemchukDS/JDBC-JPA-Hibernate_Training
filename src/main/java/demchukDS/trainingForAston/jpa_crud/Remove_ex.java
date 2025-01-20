@@ -19,7 +19,7 @@ public class Remove_ex {
         try{
             transaction.begin();
 
-            student = em.find(Student.class, 4);
+            student = em.find(Student.class, 7);
             em.remove(student);
 
             transaction.commit();

@@ -17,7 +17,7 @@ public class Persist_ex {
 
         try {
             transaction.begin();
-            student = new Student("Alesya", "Kobruseva", 6.7d);
+            student = new Student("Demchuk", "Dmitriy", 9.4d);
             entityManager.persist(student);
             transaction.commit();
         }

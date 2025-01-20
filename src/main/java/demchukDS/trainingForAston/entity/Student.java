@@ -2,6 +2,8 @@ package demchukDS.trainingForAston.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "students")
 public class Student {
@@ -11,19 +13,23 @@ public class Student {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "surname")
+    @Column(name = "surname", nullable = false)
     private String surname;
 
     @Column(name = "avg_grade")
     private Double avgGrade;
 
+    @Transient
+    private LocalDateTime createDate;
+
     public Student(String name, String surname, double avgGrade) {
         this.name = name;
         this.surname = surname;
         this.avgGrade = avgGrade;
+        createDate = LocalDateTime.now();
     }
     public Student() {
     }
@@ -52,6 +58,12 @@ public class Student {
     public void setId(Long id) {
         this.id = id;
     }
+    public LocalDateTime getCreateDate() {
+        return createDate;
+    }
+    public void setCreateDate(LocalDateTime createDate) {
+        this.createDate = createDate;
+    }
 
     @Override
     public String toString() {
@@ -60,6 +72,7 @@ public class Student {
                 ", name=" + name + '\'' +
                 ", surname=" + surname + '\'' +
                 ", avgGrade=" + avgGrade +
+                ", createDate=" + createDate +
                 "}";
     }
 }
