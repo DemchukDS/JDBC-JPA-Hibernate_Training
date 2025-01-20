@@ -6,11 +6,10 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
-
 public class Persist_ex {
     public static void main(String[] args) {
-        EntityManagerFactory factory = Persistence
-                .createEntityManagerFactory("postgres@localhost");
+        EntityManagerFactory factory = Persistence.
+                createEntityManagerFactory("postgres@localhost");
         EntityManager entityManager = factory.createEntityManager();
 
         EntityTransaction transaction = entityManager.getTransaction();
