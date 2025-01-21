@@ -11,7 +11,7 @@
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-    <mapping class="demchukDS.trainingForAston.entity.Student"/>
+    <mapping class="demchukDS.trainingForAston.crud.entity.Student"/>
 
 
     <!-- DB schema will be updated if needed -->

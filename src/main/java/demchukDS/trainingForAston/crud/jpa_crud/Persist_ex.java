@@ -1,23 +1,30 @@
-package demchukDS.trainingForAston.jpa_crud;
+package demchukDS.trainingForAston.crud.jpa_crud;
 
-import demchukDS.trainingForAston.entity.Student;
+import demchukDS.trainingForAston.crud.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
-public class Find_ex {
+public class Persist_ex {
     public static void main(String[] args) {
         EntityManagerFactory factory = Persistence.
                 createEntityManagerFactory("postgres@localhost");
         EntityManager entityManager = factory.createEntityManager();
 
+        EntityTransaction transaction = entityManager.getTransaction();
         Student student = null;
 
         try {
-            student = entityManager.find(Student.class, 5);
+            transaction.begin();
+            student = new Student("Demchuk", "Dmitriy", 9.4d);
+            entityManager.persist(student);
+            transaction.commit();
         }
         catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
             e.printStackTrace();
         }
         finally {

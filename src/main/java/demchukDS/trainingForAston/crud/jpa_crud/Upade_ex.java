@@ -1,12 +1,9 @@
-package demchukDS.trainingForAston.jpa_crud;
+package demchukDS.trainingForAston.crud.jpa_crud;
 
-import demchukDS.trainingForAston.entity.Student;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Persistence;
+import demchukDS.trainingForAston.crud.entity.Student;
+import jakarta.persistence.*;
 
-public class Remove_ex {
+public class Upade_ex {
     public static void main(String[] args) {
 
         EntityManagerFactory emf = Persistence
@@ -19,8 +16,8 @@ public class Remove_ex {
         try{
             transaction.begin();
 
-            student = em.find(Student.class, 7);
-            em.remove(student);
+            student = em.find(Student.class, 4);
+            student.setAvgGrade(9.7);
 
             transaction.commit();
         }

@@ -1,4 +1,4 @@
-package demchukDS.trainingForAston.jdbc_crud;
+package demchukDS.trainingForAston.crud.jdbc_crud;
 
 import java.sql.*;
 import java.util.Scanner;

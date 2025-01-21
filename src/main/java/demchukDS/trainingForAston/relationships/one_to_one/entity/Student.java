@@ -1,4 +1,4 @@
-package demchukDS.trainingForAston.entity;
+package demchukDS.trainingForAston.relationships.one_to_one.entity;
 
 import jakarta.persistence.*;
 
@@ -13,23 +13,23 @@ public class Student {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "surname", nullable = false)
+    @Column(name = "surname")
     private String surname;
 
     @Column(name = "avg_grade")
     private Double avgGrade;
 
-    @Transient
-    private LocalDateTime createDate;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "passport_id")
+    private Passport passport;
 
     public Student(String name, String surname, double avgGrade) {
         this.name = name;
         this.surname = surname;
         this.avgGrade = avgGrade;
-        createDate = LocalDateTime.now();
     }
     public Student() {
     }
@@ -58,11 +58,11 @@ public class Student {
     public void setId(Long id) {
         this.id = id;
     }
-    public LocalDateTime getCreateDate() {
-        return createDate;
+    public Passport getPassport() {
+        return passport;
     }
-    public void setCreateDate(LocalDateTime createDate) {
-        this.createDate = createDate;
+    public void setPassport(Passport passport) {
+        this.passport = passport;
     }
 
     @Override
@@ -72,7 +72,6 @@ public class Student {
                 ", name=" + name + '\'' +
                 ", surname=" + surname + '\'' +
                 ", avgGrade=" + avgGrade +
-                ", createDate=" + createDate +
                 "}";
     }
 }

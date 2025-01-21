@@ -1,24 +1,40 @@
-package demchukDS.trainingForAston.jpa_crud;
+package demchukDS.trainingForAston.relationships.one_to_one;
 
-import demchukDS.trainingForAston.entity.Student;
+import demchukDS.trainingForAston.relationships.one_to_one.entity.Passport;
+import demchukDS.trainingForAston.relationships.one_to_one.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
-public class Persist_ex {
+public class OneToOneBi {
     public static void main(String[] args) {
         EntityManagerFactory factory = Persistence.
                 createEntityManagerFactory("postgres@localhost");
         EntityManager entityManager = factory.createEntityManager();
 
         EntityTransaction transaction = entityManager.getTransaction();
-        Student student = null;
 
         try {
             transaction.begin();
-            student = new Student("Demchuk", "Dmitriy", 9.4d);
-            entityManager.persist(student);
+//              ***PERSIST***
+//            Student student1 = new Student("Alesya", "Kobruseva", 9.1d);
+//            Passport passport1 = new Passport("kobruseva.alesya@gmail.com",168, "brown");
+//
+//            student1.setPassport(passport1);
+//            entityManager.persist(student1);
+
+//              ***FIND***
+//            Passport passport = entityManager.find(Passport.class, 2);
+//            System.out.println(passport);
+//            System.out.println(student1);
+
+//              ***REMOVE***
+//            Passport passport = entityManager.find(Passport.class, 3);
+//            entityManager.remove(passport);
+
+
+
             transaction.commit();
         }
         catch (Exception e) {
@@ -33,6 +49,5 @@ public class Persist_ex {
                 factory.close();
             }
         }
-        System.out.println(student);
     }
 }

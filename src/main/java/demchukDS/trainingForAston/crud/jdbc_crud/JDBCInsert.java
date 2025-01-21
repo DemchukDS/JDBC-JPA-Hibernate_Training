@@ -1,6 +1,6 @@
-package demchukDS.trainingForAston.jdbc_crud;
+package demchukDS.trainingForAston.crud.jdbc_crud;
 
-import demchukDS.trainingForAston.entity.Student;
+import demchukDS.trainingForAston.crud.entity.Student;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
