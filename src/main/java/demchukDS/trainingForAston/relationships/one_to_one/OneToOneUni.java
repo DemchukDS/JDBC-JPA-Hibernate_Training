@@ -1,7 +1,5 @@
 package demchukDS.trainingForAston.relationships.one_to_one;
 
-import demchukDS.trainingForAston.relationships.one_to_one.entity.Passport;
-import demchukDS.trainingForAston.relationships.one_to_one.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;

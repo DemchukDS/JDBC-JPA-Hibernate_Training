@@ -1,11 +1,14 @@
 package demchukDS.trainingForAston.relationships.one_to_one;
 
+import demchukDS.trainingForAston.relationships.one_to_many.entity.Passport;
+import demchukDS.trainingForAston.relationships.one_to_many.entity.Student;
+import demchukDS.trainingForAston.relationships.one_to_many.src.EyeColor;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
-public class OneToOneBi {
+public class EnumEx {
     public static void main(String[] args) {
         EntityManagerFactory factory = Persistence.
                 createEntityManagerFactory("postgres@localhost");
@@ -15,23 +18,12 @@ public class OneToOneBi {
 
         try {
             transaction.begin();
-//              ***PERSIST***
-//            Student student1 = new Student("Alesya", "Kobruseva", 9.1d);
-//            Passport passport1 = new Passport("kobruseva.alesya@gmail.com",168, "brown");
-//
-//            student1.setPassport(passport1);
-//            entityManager.persist(student1);
 
-//              ***FIND***
-//            Passport passport = entityManager.find(Passport.class, 2);
-//            System.out.println(passport);
-//            System.out.println(student1);
+            Student student = new Student("Dmitriy", "Demchuk", 9.8d);
+            Passport passport = new Passport("demchuk.btg@gmail.com", 198, EyeColor.GREEN);
 
-//              ***REMOVE***
-//            Passport passport = entityManager.find(Passport.class, 3);
-//            entityManager.remove(passport);
-
-
+            student.setPassport(passport);
+            entityManager.persist(student);
 
             transaction.commit();
         }

@@ -1,9 +1,9 @@
-package demchukDS.trainingForAston.relationships.one_to_one.entity;
+package demchukDS.trainingForAston.relationships.one_to_many.entity;
 
 import jakarta.persistence.*;
 
-//@Entity
-//@Table(name = "students")
+@Entity
+@Table(name = "students")
 public class Student {
 
     @Id
@@ -23,6 +23,10 @@ public class Student {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "passport_id")
     private Passport passport;
+
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "university_id")
+    private University university;
 
     public Student(String name, String surname, double avgGrade) {
         this.name = name;
@@ -44,12 +48,6 @@ public class Student {
     public void setSurname(String surname) {
         this.surname = surname;
     }
-    public double getAvgGrade() {
-        return avgGrade;
-    }
-    public void setAvgGrade(double avgGrade) {
-        this.avgGrade = avgGrade;
-    }
     public Long getId() {
         return id;
     }
@@ -61,6 +59,18 @@ public class Student {
     }
     public void setPassport(Passport passport) {
         this.passport = passport;
+    }
+    public University getUniversity() {
+        return university;
+    }
+    public void setUniversity(University university) {
+        this.university = university;
+    }
+    public Double getAvgGrade() {
+        return avgGrade;
+    }
+    public void setAvgGrade(Double avgGrade) {
+        this.avgGrade = avgGrade;
     }
 
     @Override

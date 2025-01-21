@@ -1,10 +1,12 @@
-package demchukDS.trainingForAston.relationships.one_to_one.entity;
+package demchukDS.trainingForAston.relationships.one_to_many.entity;
 
-import demchukDS.trainingForAston.relationships.one_to_one.src.EyeColor;
+
+
+import demchukDS.trainingForAston.relationships.one_to_many.src.EyeColor;
 import jakarta.persistence.*;
 
-//@Entity
-//@Table(name = "passports")
+@Entity
+@Table(name = "passports")
 public class Passport {
 
     @Id
@@ -22,7 +24,7 @@ public class Passport {
     @Column(name = "eye_color")
     private EyeColor eyeColor;
 
-    @OneToOne(mappedBy = "passport", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "passport", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     private Student student;
 
     public Passport(String email, int height, EyeColor eyeColor) {
